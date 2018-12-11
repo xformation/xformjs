@@ -30,11 +30,12 @@ script:
 - npm run build_jquery_prod
 - npm run build_vue_dev
 - npm run build_vue_prod
-- karma start --single-run
-- http-server --silent &
-- testcafe chrome testCafe/ --reporter minimal
+# commenting the tests
+# - karma start --single-run
+# - http-server --silent &
+# - testcafe chrome testCafe/ --reporter minimal
 #- npm run testcafe_sauce
-- if [[ "$TRAVIS_EVENT_TYPE" = "cron" ]]; then echo "Starting functional tests on SauceLabs..."; npm run testcafe_sauce; fi
+# - if [[ "$TRAVIS_EVENT_TYPE" = "cron" ]]; then echo "Starting functional tests on SauceLabs..."; npm run testcafe_sauce; fi
 before_deploy: tar -zcvf xformjs.tar.gz packages
 deploy:
 - provider: releases
