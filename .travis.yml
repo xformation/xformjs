@@ -40,7 +40,7 @@ before_deploy: tar -zcvf xformjs.tar.gz packages
 deploy:
 - provider: releases
   api_key:
-    secure: Scj5vX5eGTAdHWTqA6o0Bw
+    secure: ApSGggusii9rwvgIy2tBJng1KvKo8Q5j/hAZEK3D04hn6o/Gr+b+/Xh9uoR9tkbenuSurX2yfUcVxN808tI815rAutdM2NiBsyKEhZAPf2cFPV+PBup51h7/1fFN3ASicx6dZoSSNI4UxmG+GK6qp0At1XFdIJ7y9JfPSl4DZ3cqQFqhIPEDGLtpa92/BGHLP3/gzahAJFD50F6hXcPlc8bZ9sOHmp4cK8IwTz5tpbcx7ob3jyRRQTCVCJ+QF6uEPs1qDSwRWIO4hJmz0mZKfzMeoetO+EKZZs+UeWGluC4dZ7ArvZ4JP35EUP0lJ/4S3uetURMNI6PKaXLlwVybWlTYSJKp462f88P6oPpwt5FXG4Um2MRK34q8feVmb+9W9tn97zM4o+1Gi2yZfeqbaR5KQLmMM97cMpSp8FlaV9vLA9atNzXcfYitnVnZpnwqXjRWBsAhHk3Lm6c49ZOiIWW1jgg5cbc/2rZhHPtKlA4qiRWCFlBBch5tkssGTjHdscegQU+CWDnxWTRLRQUJcxQGcKT00GJppXDvK2emBRIjqox0XG0WzQtQdvwGEC1WWJvSWmnrbm9ZsTlvzdrcl2JINBE9KudcW1X7clfdRZ89glctiZyAsCm+L09Z7KBjVniGB69uMcr10kJyL7HURxeNRkppRkkZBHgFjZpkrSA=
   file:
   - xormjs.tar.gz
   skip_cleanup: true
