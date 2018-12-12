@@ -16,10 +16,6 @@
 [xformjs Library Live Examples](https://xformjs.io/Examples/Library/)
 
 
-## More info about xformjs
-
-![alt tag](https://cloud.githubusercontent.com/assets/22315929/22462339/ed33f60a-e7bd-11e6-942b-72882e6bf1db.gif)
-
 **xformjs** is the Javascript Library that is used across xformation product lines. It can be easily customized and extended to suit your needs.
 
 ## Main Features
