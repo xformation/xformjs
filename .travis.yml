@@ -5,7 +5,9 @@ before_install:
 - stty cols 80
 env:
   global:
-  - secure: bMFyeHT7K0Z+gZ8hUjcEiFyBU3l6lNHV7TBs3g3qZZGrE6VJryKYEETuC1gG4+aSaz2ogVh6w3Rztu6noFzxYJR2Uhqm0w2FgEvCJeZmCNb+cLSNh9XxFPFp70MfV/zo1nyEAF91jlVTj9kXCCgw9gvCmeKJxyurLQZ9rUS8ADP7eylXtPb2Iu6TDUBThD8czM7VWyLoD7MPEuVDjULaBTRtaZTNOa6HuqbWEr6NbDYg7S4XLgo9Sbkm9w4gZIy8Y1eRwXi5GzcV1jylxWN4lf4FSDhNU7tRfA4BV1cLU/3VoNwsgx8JXo1+ZS7oLdkt5GxK+3o3AGM860/5D6bvobiLG8DSZjLQK+aOWbDAxLRiEA+LkvF3gNAWiAvmkxOd+iVHqFvqNBDUjPN5WOp+qNqyawazO35sr4DdXolrNKEFYihDYH4+i8X5Iwgy9Pxewko1HR5eHG8THQLEAdCOrVsFfPaT+1mbfzyk3KSomvLEd8NsqKjpj1yVwi/Lwwal5WpnKAS4HEyps8ov5K/rIx+haMrRfmPf4Opzzj9+C1N46V2HUFDPEym75RbI+YdT4h4Zc07M91cfzgvTGq0hMzuu79vH5DLMXymxRWS5U2WqbHXu1ohwOro+qXl8PtQy+AAZt6yY1CoASIVnpbzu0yD20/CjR2/aiUfvaJOVk4g=
+  - secure: tPxzI4Oj49ted203tBk9tle6Z1oPBPg3pebK5cGVpHdOygFF8AyYtQ+GeipK0Pd1ApeyLCO+DLNVbkGg/JPPRQfFmw9/47pjBNGEOlyGlJSaXYbVsFSIOJntgC29DLcaTuvdyAjKYOcx1DK/D2azup7XxGXDhQyZhF7Xk8/8DXXPUpbDg1yMs2eJWSC87qBrb7kUyUioGWdPW47n9ua1njC7J4+KNM1I/745NFy0q5R31EF/6LUFLun2dQecSVjCC6+WIDTVkutlyaHMKGeAMVjsa3mu7nzZzmYMo/sGl5s6J4HXxLTxQYKuJD7Z1pJWCxX1q6hUHMJgabuUd+3l/h+HIXDBHkyWMVo8f1+WanS8u80GTOqQ4JXRprpRGDrAVv/+GiDXLucIjno5ivBne2TSbmX3UL+49MTh2BC7mETDZPBjlwDRMG9iKRTdrbL20kJOmyP+dSflt3tlfUEpF+Wfdb0YWrwA9n/48OYy5kXRa1wxhUN1ct1HvLENQYQFyEhbIJWNjbZNzeRVKgANprazTpC20b1/JDZP6Hf1LtjriHFxhe3PcZeB4UYk2ADqDR03BMoDSOyFqrImoWTOaDNbbaL1unCqu82NLnshnksUR+Xko7/ho0RX0GJ3JQqP/THWuKoj7fIZO49i09Pkk409sQtIpIw3d4nu0SlpRBE=
+  matrix:
+    secure: tPxzI4Oj49ted203tBk9tle6Z1oPBPg3pebK5cGVpHdOygFF8AyYtQ+GeipK0Pd1ApeyLCO+DLNVbkGg/JPPRQfFmw9/47pjBNGEOlyGlJSaXYbVsFSIOJntgC29DLcaTuvdyAjKYOcx1DK/D2azup7XxGXDhQyZhF7Xk8/8DXXPUpbDg1yMs2eJWSC87qBrb7kUyUioGWdPW47n9ua1njC7J4+KNM1I/745NFy0q5R31EF/6LUFLun2dQecSVjCC6+WIDTVkutlyaHMKGeAMVjsa3mu7nzZzmYMo/sGl5s6J4HXxLTxQYKuJD7Z1pJWCxX1q6hUHMJgabuUd+3l/h+HIXDBHkyWMVo8f1+WanS8u80GTOqQ4JXRprpRGDrAVv/+GiDXLucIjno5ivBne2TSbmX3UL+49MTh2BC7mETDZPBjlwDRMG9iKRTdrbL20kJOmyP+dSflt3tlfUEpF+Wfdb0YWrwA9n/48OYy5kXRa1wxhUN1ct1HvLENQYQFyEhbIJWNjbZNzeRVKgANprazTpC20b1/JDZP6Hf1LtjriHFxhe3PcZeB4UYk2ADqDR03BMoDSOyFqrImoWTOaDNbbaL1unCqu82NLnshnksUR+Xko7/ho0RX0GJ3JQqP/THWuKoj7fIZO49i09Pkk409sQtIpIw3d4nu0SlpRBE=
 dist: trusty
 sudo: required
 addons:
@@ -29,21 +31,21 @@ script:
 - npm run build_vue_prod
 before_deploy: tar -zcvf xformjs.tar.gz packages
 deploy:
-  - provider: releases
-    file:
-    - xformjs.tar.gz
-    skip_cleanup: true
-    on:
-      tags: true
-  - provider: script
-    script: chmod +x ./deploy_npm.sh && ./deploy_npm.sh
-    skip_cleanup: true
-    email: papu.bhattacharya@synectiks.com
-    api_key:
-      secure: cKglgiqRmE7QHfrEYZVGi320nJgQJG72T1Dpoymow+bPS6Z36x79sPunK+60ePnZWrXgBOo9NqiKV1vyEbojkhHVFu6WX0N2Tl4X574khftxMzIjd9JTZqccnmLQsTJXoM/lt7MDrJQLeJWO4bR26xscyh7fNXvaXXlhp5fjgY12NJGCiXeFMGItNPbSnvOxaus+Fuzb9rkEUSvQnIJQEqI94fKJCrmvpZgulb736kFN3Q3yihMkLfyIDo8+4U0g13rZekhnV9+0PoBODATw+5dUHQ6fJ9rt65g7OKdIQdW8pN1HVpVx4KL33im1x0hyUnmlGGZqQ8xUT5TRhIgE8c/agRev7+mrW3lNqVv2jdjp/cfUmdcClO5rOgAJ10jtbom1RqOH+kA28IE0APqYfjFg3Zo/mcXvAkubOxx8Vghu8O3GZkdk2sKecfJ9oNDpsSzfIlYYPg+3qoEJVArTMg9q2FHBdc6bKp6zotdHpu2fuidD35tHAMz9NQjxvs89Nrtfb8TQh6+ZeMN51MbEA+3FuZ9e4XhhhE/A2kUoVzjSL5bGEIWlBiW51orcF5nQKALq8FWrQurWkbT1u1UxiqFlvoq6LbaGmUeAjf/KlJem0+/QoS433KPARaf/d+3T/QfYQ5dkANjaf7Gi/4QDkVnn/fYRnn7ktiuSmCnhUDM=
-    on:
-      tags: true
-    repo: xformation/xformjs
+- provider: releases
+  file:
+  - xformjs.tar.gz
+  skip_cleanup: true
+  on:
+    tags: true
+- provider: script
+  script: chmod +x ./deploy_npm.sh && ./deploy_npm.sh
+  skip_cleanup: true
+  email: papu.bhattacharya@synectiks.com
+  api_key:
+    secure: cKglgiqRmE7QHfrEYZVGi320nJgQJG72T1Dpoymow+bPS6Z36x79sPunK+60ePnZWrXgBOo9NqiKV1vyEbojkhHVFu6WX0N2Tl4X574khftxMzIjd9JTZqccnmLQsTJXoM/lt7MDrJQLeJWO4bR26xscyh7fNXvaXXlhp5fjgY12NJGCiXeFMGItNPbSnvOxaus+Fuzb9rkEUSvQnIJQEqI94fKJCrmvpZgulb736kFN3Q3yihMkLfyIDo8+4U0g13rZekhnV9+0PoBODATw+5dUHQ6fJ9rt65g7OKdIQdW8pN1HVpVx4KL33im1x0hyUnmlGGZqQ8xUT5TRhIgE8c/agRev7+mrW3lNqVv2jdjp/cfUmdcClO5rOgAJ10jtbom1RqOH+kA28IE0APqYfjFg3Zo/mcXvAkubOxx8Vghu8O3GZkdk2sKecfJ9oNDpsSzfIlYYPg+3qoEJVArTMg9q2FHBdc6bKp6zotdHpu2fuidD35tHAMz9NQjxvs89Nrtfb8TQh6+ZeMN51MbEA+3FuZ9e4XhhhE/A2kUoVzjSL5bGEIWlBiW51orcF5nQKALq8FWrQurWkbT1u1UxiqFlvoq6LbaGmUeAjf/KlJem0+/QoS433KPARaf/d+3T/QfYQ5dkANjaf7Gi/4QDkVnn/fYRnn7ktiuSmCnhUDM=
+  on:
+    tags: true
+  repo: xformation/xformjs
 notifications:
   email:
     recipients:
