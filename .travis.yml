@@ -1,22 +1,19 @@
 language: node_js
 node_js:
 - '8'
-
 before_install:
-  - stty cols 80
-
+- stty cols 80
 env:
   global:
-  - secure: L5vNGeb6J1ny0hZ4GX5DzC4usAswY6tm6mNHURiry1O+mHA5J44I6ORjere7fumK+DMnP/7SM5TjZ54kyjgP5sfp1U713atCxjhxL4rxgCDQy9mPQkrVohubmpuzlkTGjW1N/dWLUk3+HLSo+ze++DBpwryqxQxTenlkMAtVBDuTMbaLzJ+Nr2TLaqTLp053q9vBmM0c/VFL5kfFwUO/+pbVsScVL3c0B/KKPs0OMJKyjYRSH/m+5DBgB81meAZeSzS7vcvM8W1yKv1zTBW8fUQTh4+jWAIXWz8COSoeuPSA8yHax0UJ7CkqdlzZ8qT1+hKIIuiSSnlYGtET9/UUJPVeONk2sAHayfVqBqkQiD0m/cksaiiUYUUJf/4kcLjKMJWMAnbjRpUlhQFa+KJPbDVOVWyRrVmVpkrobGAmlU9gc1Ca+ceJ1ynLncixomYuZHcIV+RDX2eqZRxPw+FvcSAx5umzVAjHrKEEqa1m06V0aUWIozhXPIsUbWyc4Kx/tJ+qAMmOo8cohgmH+HWefeKxyVvwuiyI5xZZUigX0wMYFLim4bZS1s9C0ifhdBmKgJgcv0ZB0C+8IYavoMyfmnoMuDRpuTpoi7EDlcfhvs5Ec+VFUzMz2asA3aSDDsNnOun0RivWPG4uNCmYfrzCji4t4dYv0MIILBj9l7n9X2g=
+  - secure: bMFyeHT7K0Z+gZ8hUjcEiFyBU3l6lNHV7TBs3g3qZZGrE6VJryKYEETuC1gG4+aSaz2ogVh6w3Rztu6noFzxYJR2Uhqm0w2FgEvCJeZmCNb+cLSNh9XxFPFp70MfV/zo1nyEAF91jlVTj9kXCCgw9gvCmeKJxyurLQZ9rUS8ADP7eylXtPb2Iu6TDUBThD8czM7VWyLoD7MPEuVDjULaBTRtaZTNOa6HuqbWEr6NbDYg7S4XLgo9Sbkm9w4gZIy8Y1eRwXi5GzcV1jylxWN4lf4FSDhNU7tRfA4BV1cLU/3VoNwsgx8JXo1+ZS7oLdkt5GxK+3o3AGM860/5D6bvobiLG8DSZjLQK+aOWbDAxLRiEA+LkvF3gNAWiAvmkxOd+iVHqFvqNBDUjPN5WOp+qNqyawazO35sr4DdXolrNKEFYihDYH4+i8X5Iwgy9Pxewko1HR5eHG8THQLEAdCOrVsFfPaT+1mbfzyk3KSomvLEd8NsqKjpj1yVwi/Lwwal5WpnKAS4HEyps8ov5K/rIx+haMrRfmPf4Opzzj9+C1N46V2HUFDPEym75RbI+YdT4h4Zc07M91cfzgvTGq0hMzuu79vH5DLMXymxRWS5U2WqbHXu1ohwOro+qXl8PtQy+AAZt6yY1CoASIVnpbzu0yD20/CjR2/aiUfvaJOVk4g=
 dist: trusty
 sudo: required
 addons:
   firefox: stable
   chrome: stable
-
 before_script:
-- "export DISPLAY=:99.0"
-- "sh -e /etc/init.d/xvfb start"
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
 - sleep 3
 - npm install -g concurrently@3.1.0
 script:
@@ -30,28 +27,22 @@ script:
 - npm run build_jquery_prod
 - npm run build_vue_dev
 - npm run build_vue_prod
-# commenting the tests
-# - karma start --single-run
-# - http-server --silent &
-# - testcafe chrome testCafe/ --reporter minimal
-#- npm run testcafe_sauce
-# - if [[ "$TRAVIS_EVENT_TYPE" = "cron" ]]; then echo "Starting functional tests on SauceLabs..."; npm run testcafe_sauce; fi
 before_deploy: tar -zcvf xformjs.tar.gz packages
 deploy:
-- provider: releases
-  api_key:
-    secure: ApSGggusii9rwvgIy2tBJng1KvKo8Q5j/hAZEK3D04hn6o/Gr+b+/Xh9uoR9tkbenuSurX2yfUcVxN808tI815rAutdM2NiBsyKEhZAPf2cFPV+PBup51h7/1fFN3ASicx6dZoSSNI4UxmG+GK6qp0At1XFdIJ7y9JfPSl4DZ3cqQFqhIPEDGLtpa92/BGHLP3/gzahAJFD50F6hXcPlc8bZ9sOHmp4cK8IwTz5tpbcx7ob3jyRRQTCVCJ+QF6uEPs1qDSwRWIO4hJmz0mZKfzMeoetO+EKZZs+UeWGluC4dZ7ArvZ4JP35EUP0lJ/4S3uetURMNI6PKaXLlwVybWlTYSJKp462f88P6oPpwt5FXG4Um2MRK34q8feVmb+9W9tn97zM4o+1Gi2yZfeqbaR5KQLmMM97cMpSp8FlaV9vLA9atNzXcfYitnVnZpnwqXjRWBsAhHk3Lm6c49ZOiIWW1jgg5cbc/2rZhHPtKlA4qiRWCFlBBch5tkssGTjHdscegQU+CWDnxWTRLRQUJcxQGcKT00GJppXDvK2emBRIjqox0XG0WzQtQdvwGEC1WWJvSWmnrbm9ZsTlvzdrcl2JINBE9KudcW1X7clfdRZ89glctiZyAsCm+L09Z7KBjVniGB69uMcr10kJyL7HURxeNRkppRkkZBHgFjZpkrSA=
-  file:
-  - xformjs.tar.gz
-  skip_cleanup: true
-  on:
-    tags: true
-- provider: script
-  script: chmod +x ./deploy_npm.sh && ./deploy_npm.sh
-  skip_cleanup: true
-  on:
-    tags: true
+  - provider: releases
+    file:
+    - xformjs.tar.gz
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: script
+    script: chmod +x ./deploy_npm.sh && ./deploy_npm.sh
+    skip_cleanup: true
+    on:
+      tags: true
+    api_key:
+      secure: bMFyeHT7K0Z+gZ8hUjcEiFyBU3l6lNHV7TBs3g3qZZGrE6VJryKYEETuC1gG4+aSaz2ogVh6w3Rztu6noFzxYJR2Uhqm0w2FgEvCJeZmCNb+cLSNh9XxFPFp70MfV/zo1nyEAF91jlVTj9kXCCgw9gvCmeKJxyurLQZ9rUS8ADP7eylXtPb2Iu6TDUBThD8czM7VWyLoD7MPEuVDjULaBTRtaZTNOa6HuqbWEr6NbDYg7S4XLgo9Sbkm9w4gZIy8Y1eRwXi5GzcV1jylxWN4lf4FSDhNU7tRfA4BV1cLU/3VoNwsgx8JXo1+ZS7oLdkt5GxK+3o3AGM860/5D6bvobiLG8DSZjLQK+aOWbDAxLRiEA+LkvF3gNAWiAvmkxOd+iVHqFvqNBDUjPN5WOp+qNqyawazO35sr4DdXolrNKEFYihDYH4+i8X5Iwgy9Pxewko1HR5eHG8THQLEAdCOrVsFfPaT+1mbfzyk3KSomvLEd8NsqKjpj1yVwi/Lwwal5WpnKAS4HEyps8ov5K/rIx+haMrRfmPf4Opzzj9+C1N46V2HUFDPEym75RbI+YdT4h4Zc07M91cfzgvTGq0hMzuu79vH5DLMXymxRWS5U2WqbHXu1ohwOro+qXl8PtQy+AAZt6yY1CoASIVnpbzu0yD20/CjR2/aiUfvaJOVk4g=
 notifications:
   email:
     recipients:
-      - papu.bhattacharya@synectiks.com
+    - papu.bhattacharya@synectiks.com
