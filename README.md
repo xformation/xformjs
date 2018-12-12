@@ -19,10 +19,6 @@ The UI component library for synectiks xformation platform -- mostly written in 
 [xformjs Library Live Examples](https://xformjs.io/Examples/Library/)
 
 
-## More info about xformjs
-
-![alt tag](https://cloud.githubusercontent.com/assets/22315929/22462339/ed33f60a-e7bd-11e6-942b-72882e6bf1db.gif)
-
 **xformjs** is the Javascript Library that is used across xformation product lines. It can be easily customized and extended to suit your needs.
 
 ## Main Features
@@ -33,9 +29,6 @@ The UI component library for synectiks xformation platform -- mostly written in 
 * [Seven built-in Themes](https://xformjs.io/Examples/Library/?id=darkblue-theme)
 * [Bootstrap support](https://xformjs.io/Examples/Library/?id=bootstrap-theme)
 * [CSS styles customization](https://xformjs.io/Examples/Library/?id=survey-cssclasses)
-* [API for adding new or changing existing HTML elements](https://xformjs.io/Examples/Library/?id=survey-afterrender)
-* [Render Questions in one line](https://xformjs.io/Examples/Library/?id=survey-startwithnewline)
-* [Markdown support](https://xformjs.io/Examples/Library/?id=survey-markdown-radiogroup)
 
 
 ### To find out more about the library go
@@ -45,10 +38,10 @@ The UI component library for synectiks xformation platform -- mostly written in 
 
 #### You can use our quickstart repos:
 
-* [Angular 2](https://github.com/xformjs/xformjs_angular_quickstart)
-* [Angular CLI](https://github.com/xformjs/xformjs_angular_cli)
-* [React](https://github.com/xformjs/xformjs_react_quickstart)
-* [Vue](https://github.com/xformjs/xformjs_vue_quickstart)
+* [Angular 2](https://github.com/xformation/xformjs_angular_quickstart)
+* [Angular CLI](https://github.com/xformation/xformjs_angular_cli)
+* [React](https://github.com/xformation/xformjs_react_quickstart)
+* [Vue](https://github.com/xformation/xformjs_vue_quickstart)
 
 ## License
 
