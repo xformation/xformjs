@@ -37,6 +37,8 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
+  api_key:
+    secure: "cffMYYPbRh+RZYvDyqfARTs3ExElRXaNW0P2M25pdw66AHdkjtwhFeWM0zE2NE4a7RYsTQ8hF7IL1OSsJUXxKbMg7PfCquSsf/dYeeivjoH/NLLzLD72/95ruzBr3d6RNjW98XtnbEKcZ1c6wEwVtLJb5FcR6NZY1Q8EKE8nwgpm7o16sgYt/qWg6OMXkdaBQgOioRQUodOCo0mnM7G1SpS9KAE1MDWSeBh00VvWtT+0MWaAjuJPTzQ7MQc2MciwXgRf3ncoeWlRPhgpARyvV3yhADp/cfcUxOiMmFt2b81ocYSK1tFruKarKiKupGsWYrE2yD/HZP9RLgUzdaehhGzoMSb/eQAPN9xW/1BZ5kHzLd7Bynsj3QKpmP+ps2adY0d22IT0raB2sFrlPK4hQRkCrcrbbLEBzCZpbTMrUvtO4l2nXR49ymC1B2RfjHGd9aGGDb84eSXlYS/Jd0xz2U77j5cvykK11J0naIV/H3CvWSOvHzFmFqaqX1UHkmVB2dQ4sJfpMLIp035AgOXP9pIr+y/FEJv/beabYSF8YfM5wiqjowGiicjYEV2IhZyXjskpJ6HeB4zgVBrwSjYhrVunUPivLc6xVV9rxI9IIaLnHKNtbvBXDcF8SRv89BMmJDoqhgu39xeDVuAzBL/sW2RILaBdHw9M2CSwqur8Ino="
 - provider: script
   script: chmod +x ./deploy_npm.sh && ./deploy_npm.sh
   skip_cleanup: true
