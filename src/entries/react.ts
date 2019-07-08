@@ -18,6 +18,7 @@ export {
 
 // react
 export { Survey } from "../react/reactSurvey";
+export { SurveyCollapseForm } from "../react/reactSurveyCollapseForm";
 export { ReactSurveyModel, ReactWindowModel } from "../react/reactsurveymodel";
 export {
   ReactSurveyModel as Model,
@@ -74,6 +75,5 @@ export { SurveyQuestionExpression } from "../react/reactquestionexpression";
 export { SurveyWindow } from "../react/reactSurveyWindow";
 export { ReactQuestionFactory } from "../react/reactquestionfactory";
 export { SurveyQuestionImagePicker } from "../react/imagepicker";
-
 //Uncomment to include the "date" question type.
 //export {default as SurveyQuestionDate} from "../plugins/react/reactquestiondate";
