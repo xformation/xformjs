@@ -1,3 +1,21 @@
 .float-right{
     float: right;
 }
+
+.form-control-label{
+    background-color: red;
+    color: white;
+}
+
+.gf-form-label{
+    background-color: black;
+    color: white;
+}
+
+.no-error{
+    background-color: green;
+}
+
+.error{
+    background-color: red;
+}

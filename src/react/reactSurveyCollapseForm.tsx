@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Survey } from "./reactSurvey";
-import { SurveyElementBase } from "./reactquestionelement";
+import { SurveyError } from "../base";
+import { SurveyElementBase, SurveyLocString } from "./reactquestionelement";
 
 export class SurveyCollapseForm extends Survey {
     constructor(props: any) {
@@ -45,19 +46,34 @@ export class SurveyCollapseForm extends Survey {
             title = SurveyElementBase.renderLocString(this.survey.locTitle);
         }
         return title ? (
-            <div className={this.css.header} onClick={this.toggleForm}>
+            <div className={`${this.css.header} ${this.state.isError === 1 ? this.css.headerError : (this.state.isError === 0 ? this.css.headerNoError: "")}`} onClick={this.toggleForm}>
                 <h3>
                     {title}
-                    <span className="float-right">
+                    <span className={this.css.collapseHeader || "pull-right"}>
                         {
-                            !isCollapsed && <i className="fas fa-minus-square"></i>
+                            !isCollapsed && <i className={this.css.minusIcon || "fa fa-fw fa-minus"}></i>
                         }
                         {
-                            isCollapsed && <i className="fas fa-plus-square"></i>
+                            isCollapsed && <i className={this.css.plusIcon || "fa fa-fw fa-plus"}></i>
                         }
                     </span>
                 </h3>
             </div>
         ) : null;
+    }
+
+    protected setSurveyEvents(newProps: any) {
+        super.setSurveyEvents(newProps);
+        this.survey.onValueChanged.add((sender, options: any) => {
+            if (options.question.errors.length > 0 && !this.state.isError) {
+                this.setState({
+                    isError: 1
+                });
+            } else if (options.question.errors.length === 0 && this.state.isError) {
+                this.setState({
+                    isError: 0
+                });
+            }
+        });
     }
 }

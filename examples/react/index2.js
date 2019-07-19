@@ -19,7 +19,7 @@ var PERSONAL = {
             startWithNewLine: false
         }
     ]
-}; 
+};
 var ADDRESS = {
     title: "Contact Details",
     showQuestionNumbers: "off",
@@ -81,9 +81,54 @@ var EDUCATION = {
     ]
 };
 
+const leftCss = {
+    root: "form-container",
+    header: "form-header",
+    footer: "panel-footer card-footer text-right",
+    body: "form-body-left",
+    question: {
+        title: "gf-form-label width-8 m-0",
+        mainRoot: "gf-form",
+    },
+    text: "gf-form-input max-width-22",
+    dropdown: {
+        control: "gf-form-input max-width-22",
+    },
+    navigation: {
+        complete: "btn bs"
+    },
+    error: {
+        root: "error"
+    }
+};
+
+const rightCss = {
+    root: "form-container",
+    header: "form-header",
+    headerNoError: "no-error",
+    headerError: "error",
+    footer: "panel-footer card-footer text-right",
+    body: "form-body-right",
+    question: {
+        title: "form-control-label",
+        mainRoot: "form-control-container sv_qstn"
+    },
+    text: "input-form-control",
+    dropdown: {
+        control: "select-form-control",
+    },
+    navigation: {
+        complete: "btn bs"
+    },
+    error: {
+        root: "error"
+    }
+};
+
 function init() {
     // var model = new xform.Model(PERSONAL);
     // window.survey = model;
+    let { SurveyCollapseForm } = xform;
     ReactDOM.render(
         <table width="100%">
             <tbody>
@@ -95,13 +140,13 @@ function init() {
                     </td>
                     <td style={{ width: '70%' }}>
                         <div>
-                            <xform.SurveyCollapseForm json={PERSONAL} />
+                            <SurveyCollapseForm json={PERSONAL} css={leftCss} />
                         </div>
                         <div>
-                            <xform.SurveyCollapseForm json={ADDRESS} />
+                            <SurveyCollapseForm json={ADDRESS} css={rightCss} />
                         </div>
                         <div>
-                            <xform.SurveyCollapseForm json={EDUCATION} />
+                            <SurveyCollapseForm json={EDUCATION} />
                         </div>
                     </td>
                 </tr>
